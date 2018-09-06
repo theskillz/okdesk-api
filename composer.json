@@ -3,6 +3,8 @@
     "description": "REST Api client for okdesk.ru",
     "type": "library",
     "require": {
+        "ext-curl": "*",
+        "ext-json": "*",
         "guzzlehttp/guzzle": "^6.3"
     },
     "license": "GPL",
