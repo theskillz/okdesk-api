@@ -52,4 +52,9 @@ class Issues
         return json_decode($response->getBody()->getContents());
     }
 
+    public function create($params = [])
+    {
+        $response = $this->api->requestPost('issues', $params);
+        return json_decode($response->getBody()->getContents());
+    }
 }

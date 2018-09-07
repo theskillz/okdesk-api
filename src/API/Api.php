@@ -26,10 +26,18 @@ class Api
         }
         return $this->issues;
     }
-    
+
     public function requestGet($resource, $params = [])
     {
         $params['api_token'] = $this->token;
         return $this->client->get($resource, ['query' => $params]);
+    }
+
+    public function requestPost($resource, $params = [])
+    {
+        return $this->client->post($resource, [
+            'query' => ['api_token' => $this->token],
+            'json' => $params,
+        ]);
     }
 }
