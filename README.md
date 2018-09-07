@@ -1,44 +1,25 @@
-# Чек-лист
-## Компании
-* ~~Поиск компании~~
-* Создание компании
-* Редактирование компании
+# OkDesk PHP API v1
 
-## Контакты
-* ~~Поиск контакта~~
-* Создание контакта
-* Редактирование контакта
+[![Build Status](https://travis-ci.org/theskillz/okdesk-api.svg?branch=master)](https://travis-ci.org/theskillz/okdesk-api)
+[![Packagist](https://img.shields.io/packagist/v/theskillz/okdesk-api.svg)](https://packagist.org/packages/theskillz/okdesk-api)
 
-## Договоры
-* ~~Поиск договора~~
-* ~~Информация о договоре~~
-* Редактирование договора
-* Создание договора
-* ~~Получение списка договоров компании~~
-* Добавление сервисного периода
-* Изменение сервисного периода
+This is an php client for the [OkDesk](http://okdesk.ru) API v1.
+## Quick Start
+```php
+require __DIR__ . '/vendor/autoload.php';
+use \OkDesk\Api;
 
-## Заявки
-* Создание заявки
-* Смена статуса заявки
-* Добавление комментария
-* Получение списка комментариев
-* Получение списка по параметрам
-* ~~Информация о заявке~~
-* Оценка заявки
-* Получение спецификаций заявки
+$api = new Api("your_okdesk_domain", "your_okdesk_token");
 
-## Оборудование
-* ~~Поиск оборудования~~
-* Создание оборудования
-* Редактирование оборудования
-* ~~Информация об оборудовании~~
+$issue = $api->issues->view(123);
+$companiesList = $api->companies->all(['search_string' => 'ACME Ltd']);
 
-## Объекты обслуживания
-* ~~Поиск объекта обслуживания~~
-* Создание объекта обслуживания
-* Редактирование объекта обслуживания
-* ~~Информация об объекте обслуживания~~
+```
+## Installation
 
-## Другое
-* Создание ссылки на логин
+To integrate this library into your application, use [Composer](https://getcomposer.org).
+ can be installed using [Composer](https://getcomposer.org) by running the following command:
+
+```bash
+php composer.phar require theskillz/okdesk-api
+```

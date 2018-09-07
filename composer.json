@@ -1,7 +1,16 @@
 {
     "name": "theskillz/okdesk-api",
     "description": "REST Api client for okdesk.ru",
+    "homepage": "https://github.com/theskillz/okdesk-api",
+    "keywords": ["okdesk", "help desk", "api"],
     "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yura Marmyshev",
+            "email": "skillz.nexus@gmail.com"
+        }
+    ],
     "require": {
         "php": "^7.1",
         "ext-curl": "*",
@@ -11,13 +20,6 @@
     "require-dev": {
         "phpunit/phpunit": "^7.3"
     },
-    "license": "GPL",
-    "authors": [
-        {
-            "name": "Yura Marmyshev",
-            "email": "skillz.nexus@gmail.com"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "OkDesk\\": "src/"
