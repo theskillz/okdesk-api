@@ -3,9 +3,13 @@
     "description": "REST Api client for okdesk.ru",
     "type": "library",
     "require": {
+        "php": "^7.1",
         "ext-curl": "*",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
     },
     "license": "GPL",
     "authors": [
@@ -17,6 +21,11 @@
     "autoload": {
         "psr-4": {
             "OkDesk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OkDesk\\tests\\": "tests/"
         }
     }
 }
