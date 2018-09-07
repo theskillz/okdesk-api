@@ -1,24 +1,32 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yura
- * Date: 06.09.18
- * Time: 21:51
- */
 
-namespace OkDesk;
+namespace OkDesk\Resources;
 
+use OkDesk\Api;
 
-use OkDesk\API\Api;
-
-abstract class Resource
+abstract class AbstractResource
 {
     protected $api;
+    protected $endpoint;
     protected $attributes = [];
 
     public function __construct(Api $api)
     {
         $this->api = $api;
+    }
+
+    protected function endpoint($id = null)
+    {
+        return $id === null ? $this->endpoint : $this->endpoint . '/' . $id;
+    }
+
+    /**
+     * @return Api
+     * @internal
+     */
+    protected function api()
+    {
+        return $this->api;
     }
 
     public function __get($name)

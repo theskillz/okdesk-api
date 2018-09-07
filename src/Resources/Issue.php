@@ -1,11 +1,19 @@
 <?php
-namespace OkDesk\Issues;
+namespace OkDesk\Resources;
 
-use OkDesk\API\Api;
-use OkDesk\Resource;
+use OkDesk\Resources\Traits\AllTrait;
+use OkDesk\Resources\Traits\ViewTrait;
 
-class Issue extends Resource
+class Issue extends AbstractResource
 {
+    use ViewTrait;
+
+    /**
+     * The resource endpoint
+     *
+     * @var string
+     */
+    protected $endpoint = 'issues';
     protected $attributes = [
         'id' => null,
         'title' => null,
