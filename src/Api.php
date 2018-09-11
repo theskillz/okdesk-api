@@ -95,6 +95,8 @@ class Api
                     return json_decode($this->client->post($url, $options)->getBody(), true);
                 case 'PUT':
                     return json_decode($this->client->put($url, $options)->getBody(), true);
+                case 'PATCH':
+                    return json_decode($this->client->patch($url, $options)->getBody(), true);
                 case 'DELETE':
                     return json_decode($this->client->delete($url, $options)->getBody(), true);
                 default:

@@ -11,12 +11,14 @@ class ApiTest extends TestCase
         parent::setUp();
         $this->class = Api::class;
     }
+
     public function methodsThatShouldExist()
     {
         return [
             ['request'],
         ];
     }
+
     /**
      * @dataProvider publicPropertiesThatShouldExist
      */

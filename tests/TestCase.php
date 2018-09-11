@@ -21,4 +21,19 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     {
         $this->api = new Api("foo", "bar");
     }
+
+    /**
+     * @dataProvider methodsThatShouldExist
+     */
+    public function testMethodsExist($method)
+    {
+        $this->assertMethodExists($method);
+    }
+
+    protected function assertMethodExists($method)
+    {
+        $this->assertTrue(
+            method_exists($this->class, $method)
+        );
+    }
 }
