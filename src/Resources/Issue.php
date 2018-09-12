@@ -1,12 +1,12 @@
 <?php
 namespace OkDesk\Resources;
 
-use OkDesk\Resources\Traits\AllTrait;
+use OkDesk\Resources\Traits\CreateTrait;
 use OkDesk\Resources\Traits\ViewTrait;
 
 class Issue extends AbstractResource
 {
-    use ViewTrait;
+    use CreateTrait, ViewTrait;
 
     /**
      * The resource endpoint
@@ -40,4 +40,8 @@ class Issue extends AbstractResource
         'comments' => null,
     ];
 
+    public function all(array $query = null)
+    {
+        return $this->api->request('GET', $this->endpoint . '/count', null, $query);
+    }
 }
