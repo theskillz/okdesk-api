@@ -65,15 +65,6 @@ class Api
         $this->init();
     }
 
-    public function issues()
-    {
-        if (is_null($this->issues)) {
-            $this->issues = new Issues($this);
-        }
-        return $this->issues;
-    }
-
-
     public function request($method, $endpoint, array $data = null, array $query = null)
     {
         $options = ['json' => $data];
@@ -126,5 +117,10 @@ class Api
         $this->equipments = new Equipment($this);
         $this->issues = new Issue($this);
         $this->maintenanceEntities = new MaintenanceEntity($this);
+    }
+
+    public function createLoginLink($data = null)
+    {
+        return $this->request('POST', 'login_link', $data);
     }
 }
