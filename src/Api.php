@@ -4,6 +4,7 @@ namespace OkDesk;
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use OkDesk\Resources\Agreement;
 use OkDesk\Resources\Company;
 use OkDesk\Resources\Contact;
@@ -93,6 +94,19 @@ class Api
                 default:
                     return null;
             }
+        } catch (RequestException $e) {
+            if ($e->hasResponse()) {
+                $response = json_decode($e->getResponse()->getBody(), true);
+                // message is in $response->getReasonPhrase()
+            } else {
+                $response = $e->getHandlerContext();
+                if (isset($response['error'])) {
+                    // message is in $response['error']
+                } else {
+                    // Unknown error occured!
+                }
+            }
+            return $response;
         } catch (\Exception $e) {
 //            throw ApiException::create($e);
             print_r($e->getMessage());
